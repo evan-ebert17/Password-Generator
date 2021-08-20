@@ -14,27 +14,33 @@ buttonInteract.addEventListener('click', function generateMessages() {
     alert('Password must be only 74 characters or smaller!');
     return;
   }
-  
+
   var lowerPrompt = confirm('Lower Case letters included?');
   var upperPrompt = confirm('Upper Case letters included?');
   var numberPrompt = confirm('Numbers included?');
   var specialPrompt = confirm('Special characters (!@#$%^&*) included?');
 
   function generatePassword() {
-    if (lowerPrompt = true) {
+    if (lowerPrompt === true) {
       passArr.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
     }
-    if (upperPrompt = true) {
+
+    if (upperPrompt == true) {
       passArr.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
     }
-    if (numberPrompt = true) {
+
+    if (numberPrompt == true) {
       passArr.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
     }
-    if (specialPrompt = true) {
+
+    if (specialPrompt == true) {
       passArr.push("!", "@", "#", "$", "%", "^", "&", "*", "-", "_", "=", "+");
     }
+    if(specialPrompt == false && numberPrompt == false && upperPrompt == false && lowerPrompt == false) {
+      return alert('...you answered no to everything');
+    }
     for (let i = 0; i < passArr.length; i++) {
-      var item = passArr[Math.floor(Math.random()*passArr.length)];
+      var item = passArr[Math.floor(Math.random() * passArr.length)];
       randomFinalArr.push(item)
     }
     randomFinalArr.length = charLengthPrompt;
